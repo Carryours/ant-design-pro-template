@@ -8,5 +8,9 @@ export default [
     layout: false,
     routes: [{ name: '登录', path: '/user/login', component: './user/login' }],
   },
+  {
+    path: '/project',
+    component: './Project',
+  },
   { path: '*', layout: false, component: './404' },
 ];
