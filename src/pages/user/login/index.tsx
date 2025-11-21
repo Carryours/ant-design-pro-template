@@ -14,6 +14,7 @@ import './index.less';
 import { RoleEnum } from '@/enums';
 import store from '@/store';
 
+// import loginBackground from '@/assets/login-background.png';
 const { getState } = store;
 
 const Login: React.FC = () => {
@@ -90,7 +91,10 @@ const Login: React.FC = () => {
         </title>
       </Helmet>
       {/* 左侧背景图 */}
-      <div className="login-left" />
+      <div
+        className="login-left"
+        style={{ backgroundImage: `url(${Settings.loginBackground})` }}
+      />
       {/* 右侧登录表单 */}
       <div className="login-right">
         {/* 头部 Logo 和标题 */}
