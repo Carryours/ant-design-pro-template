@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    redirect: '/user/login',
+    redirect: '/project',
   },
   {
     path: '/user',
@@ -10,7 +10,7 @@ export default [
   },
   {
     path: '/project',
-    component: './Project',
+    routes: [{ name: '项目列表', path: '/project', component: './project' }],
   },
   { path: '*', layout: false, component: './404' },
 ];
