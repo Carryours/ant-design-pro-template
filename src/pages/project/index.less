@@ -60,6 +60,59 @@
       font-size: 12px;
       color: #999999;
       font-family: AlibabaSans, sans-serif;
+      margin-bottom: 8px;
+
+      &.tooltip-status-success {
+        color: #52c41a;
+      }
+
+      &.tooltip-status-warning {
+        color: #faad14;
+      }
+
+      &.tooltip-status-default {
+        color: #d9d9d9;
+      }
+    }
+
+    .tooltip-counts {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #f0f0f0;
+
+      .tooltip-count-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+        font-size: 12px;
+        font-family: AlibabaSans, sans-serif;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .count-label {
+          color: #666666;
+        }
+
+        .count-value {
+          font-weight: 600;
+          color: #333333;
+
+          &.success {
+            color: #52c41a;
+          }
+
+          &.failed {
+            color: #ff4d4f;
+          }
+
+          &.abort {
+            color: #faad14;
+          }
+        }
+      }
     }
   }
 }
