@@ -25,16 +25,10 @@ declare namespace API {
   };
 
   type PublicKeyRes = {
-    data: {
-      rsa: string;
-    };
+    rsa: string;
   };
 
   type LoginRes = {
-    data: LoginData;
-  };
-
-  type LoginData = {
     expires: string;
     token: string;
     roles: RoleInfo[];

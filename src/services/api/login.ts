@@ -6,7 +6,7 @@ export const login = (body: API.LoginParams): Promise<API.LoginRes> => {
 
 /** 获取公钥 */
 export const getRSAPublicKey = (): Promise<API.PublicKeyRes> => {
-  return request("user/rsa", { method: "POST" });
+  return request("user/rsa", { method: "GET" });
 };
 
 /** 退出登录接口 */

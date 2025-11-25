@@ -132,7 +132,7 @@ export default defineConfig({
    * @doc https://umijs.org/docs/max/request
    */
   request: {
-    dataField: 'data',
+    // dataField: 'data', // 已移除：因为响应拦截器已经返回完整的响应对象，代码中使用 msg.data.xxx 访问数据
   },
   /**
    * @name 权限插件

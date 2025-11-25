@@ -50,22 +50,19 @@ export const errorConfig: RequestConfig = {
   // 响应拦截器
   responseInterceptors: [
     (res: AxiosResponse) => {
-      // const { data: response } = res;
+      const { data: response } = res;
       // if (res.status === 401 && res?.data?.code === 16) {
       //   history.push('/user/login');
       //   store.dispatch(removeUserInfo());
       //   return Promise.reject(new Error('登录过期，请重新登录'));
       // }
-      return res;
-      // if (response.code === 0 || response.code === "NoError") {
-      //   // 这里框架支持自动将 response.data 赋值给返回值， 配置可见config.ts中request.dataField
-      //   return response;
-      // } else {
-      //   console.log(response)
-      //   const errMsg = response.message || response.msg;
-      //   message.error(errMsg);
-      //   return Promise.reject(response);
-      // }
+      // return res;
+      if (response.code === 0 || response.code === 'NoError') {
+        // 这里框架支持自动将 response.data 赋值给返回值， 配置可见config.ts中request.dataField
+        return response;
+      } else {
+        return Promise.reject(response);
+      }
     },
   ],
 

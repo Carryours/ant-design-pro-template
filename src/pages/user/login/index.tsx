@@ -38,8 +38,9 @@ const Login: React.FC = () => {
     // 登录
     getRSAPublicKey()
       .then((res) => {
+        console.log(res);
         const encrypt = new JSEncrypt();
-        encrypt.setPublicKey(res.data.rsa);
+        encrypt.setPublicKey(res?.rsa);
         const password = encrypt.encrypt(values.password || '');
         if (!password) {
           message.error('加密失败！');
@@ -50,22 +51,21 @@ const Login: React.FC = () => {
           password: password,
           appID: 1,
         })
-          .then((msg) => {
-            const isDatasetAdmin = msg.data.roles.some(
+          .then((data) => {
+            const isDatasetAdmin = data.roles.some(
               (role: API.RoleInfo) => role.keyword === RoleEnum.DatasetAdmin,
             );
             dispatch(
               updateUserInfo({
-                token: msg.data.token,
-                expires: msg.data.expires,
+                token: data.token,
+                expires: data.expires,
                 name: values.username || '',
-                roles: msg.data.roles,
+                roles: data.roles,
                 isDatasetAdmin: isDatasetAdmin,
               }),
             );
             setLoading(false);
             const userInfo = getState().userInfo;
-            console.log(userInfo);
             const defaultLoginSuccessMessage = '登录成功！';
             message.success(defaultLoginSuccessMessage);
             const urlParams = new URL(window.location.href).searchParams;
@@ -73,12 +73,12 @@ const Login: React.FC = () => {
           })
           .catch((err) => {
             setLoading(false);
-            message.error(err?.response.data.message || err.message || err.msg);
+            // message.error(err?.message || err?.msg);
           });
       })
       .catch((err) => {
         setLoading(false);
-        message.error(err.message);
+        // message.error(err.message);
       });
   };
 

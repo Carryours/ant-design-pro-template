@@ -12,9 +12,9 @@
 export default {
   dev: {
     '/api/v1': {
-      target: 'https://test-ai-dataset.tucdev.com/',
+      // target: 'https://test-ai-dataset.tucdev.com/',
       // target: 'https://ai-dataset.tuchong.com/',
-      // target: 'http://127.0.0.1:8080',
+      target: 'http://127.0.0.1:8000',
       // target: 'http://192.168.30.209:8080',
       // target: 'http://192.168.30.72:8080',
       changeOrigin: true,
